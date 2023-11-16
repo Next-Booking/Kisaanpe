@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/recipt.css">
+</head>
+<body>
+    <main>
+  
+            <h1>
+                Farmerpe/ किसान पे
+            </h1>
+            <h2>Recipt</h2>
+
+        <div class="content">
+            <div class="text">
+                <div class="spacing">
+                    <label for="date">Date/ दिनांक:  </label>
+                    <input type="date" id="date">
+                </div>
+                <div class="spacing">
+                    <label for="Amount">Charge/ शुल्क:  </label>
+                    <input type="text" id="Amount">
+                </div>
+                <div class="spacing">
+                    <p>Beneficiary Name / हितग्राही नाम: </p>
+                    <p class="name"><%= formData.fname %> <%= formData.mname %> <%= formData.lname %></p>
+                </div>
+                <div class="spacing">
+                    <p>Mobile Number / मोबाइल नंबर: </p>
+                    <p><%= formData.mnumber %></p>
+                </div>
+                <div class="spacing">
+                    <p>Email/ ईमेल: </p>
+                    <p><%= formData.email %></p>
+                </div>
+                <div class="spacing">
+                    <p>Address/ पता: </p>
+                    <p><%= formData.address %></p>
+                </div>
+                <div class="spacing">
+                    <p>Area: </p>
+                    <p> <%= formData.landarea %></p>
+                </div>
+                <div class="spacing">
+                    <p>Pin Code/ पिनकोड: </p>
+                    <p><%= formData.pcode %> </p>
+                </div>
+                <div class="spacing">
+                    <p>Animal Numbers/ पशु संख्या </p>
+                    <div class="inp_section">
+                        <label for="cow">गाय</label>
+                        <input type="text" id="cow" class="animal_inp">
+                        <label for="buffalo">भैंस</label>
+                        <input type="text" id="buffalo"  class="animal_inp">                  
+                        <label for="goat">बकरी</label>
+                        <input type="text" id="goat"  class="animal_inp">  
+                        
+                    </div>  
+            
+                </div>
+
+
+            </div>
+            <div class="images">
+
+                    <img id="cimg" src="data:<%= formData.cimg.contentType %>;base64,<%= formData.cimg.data.toString('base64') %>" alt="">
+        
+            </div>
+
+            
+            
+        </div>
+        <button onclick="printPage()">PRINT</button>
+
+    </main>
+    <script>
+            function printPage() {
+      // Trigger the browser's print functionality
+      window.print();
+    }
+    </script>
+</body>
+</html>

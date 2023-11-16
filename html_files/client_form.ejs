@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css"  href="../stylesheet/registration_style.css">
+</head>
+<body>
+    <main>
+        <h1>
+            Registration Form
+        </h1>
+        <form id="myForm" method="post" enctype="multipart/form-data">
+            <div class="form-dflex">
+                <div class="form_column form_column--1">
+                    <div class="input_sec">
+                        <label class="text_label" for="fname">First name</label>
+                        <input  type="text" id="fname" name="fname">
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="mname">Middle name</label>
+                        <input type="text" id="mname" name="mname">
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="lname">Last name</label>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="email">Email Id</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="district">District</label>
+                        <input type="text" id="district" name="district">
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="address">Full Address</label>
+                        <textarea name="address" id="address" cols="17" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form_column form_column--2">
+                    <div class="input_sec">
+                        <label class="text_label" for="landarea">Land area</label>
+                        <input type="text" id="landarea" name="landarea">
+                    </div>
+
+
+                    <div class="input_sec">
+                        <label class="text_label" for="rnumber">Registration Number</label>
+                        <input type="text" id="rnumber" name="rnumber" value= <%= num %> readonly>
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="mnumber">Mobile Number</label>
+                        <input type="text" id="mnumber" name="mnumber">
+                    </div>
+
+                    <div class="input_sec">
+                        <label class="text_label" for="aadhaar">Aadhaar Number</label>
+                        <input type="text" id="aadhaar" name="aadhaar">
+                    </div>
+                    <div class="input_sec">
+                        <label class="text_label" for="pcode">Pin Code</label>
+                        <input type="text" id="pcode" name="pcode">
+                    </div>
+                    <div class="input_sec">
+                        <label class="text_label" for="agent_name">Agent Name</label>
+                        <input type="text" id="aname" name="aname">
+                    </div>
+                    <div class="input_sec">
+                        <label class="text_label" for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                </div>
+                
+    
+                <div class="image_column">
+                    <label for="cimg" class="cimg-label">
+                        <img src="../images/Square_profile_sizing.png" alt="" class="selectedImage" id="cimg_display">
+                        <input class="cimg-input" type="file" id="cimg" name="cimg" onchange="displayImage()" accept="image/*">
+                    </label>
+                    <label for="aimg" class="cimg-label">
+                        <img src="../images/Square_profile_sizing.png" alt="" class="selectedImage" id="aimg_display">
+                        <input class="cimg-input" type="file" id="aimg" name="aimg" accept="image/*" onchange="displayImage2()">
+                    </label>
+                </div>
+            </div>
+         
+            <button class="submit" onclick="submitForm()">Submit</button>
+            <button class="submit" id="generate" onclick="generateReceipt()">Generate Recipt</button>
+          </form> 
+    </main>
+    <script>
+        function displayImage() {
+            // Get the file input element
+            var input = document.getElementById('cimg');
+    
+            // Get the selected file
+            var file1 = input.files[0];
+     
+            if (file1 ) {
+                // Create a FileReader
+                var reader = new FileReader();
+
+                // Set up a function to be called when the FileReader has loaded the image
+                reader.onload = function (e) {
+                    // Get the data URL representing the file
+                    var imageDataUrl = e.target.result;
+
+                    // Update the source of the image element
+                    document.getElementById('cimg_display').src = imageDataUrl;
+                };
+
+                // Read the file as a data URL
+                reader.readAsDataURL(file1);
+            }
+
+        }
+        function displayImage2(){
+    
+            var input2 = document.getElementById('aimg')
+            // Get the selected file
+
+            var file2 = input2.files[0]
+ 
+            if (file2) {
+                // Create a FileReader
+                var reader = new FileReader();
+
+                // Set up a function to be called when the FileReader has loaded the image
+                reader.onload = function (e) {
+                    // Get the data URL representing the file
+                    var imageDataUrl = e.target.result;
+
+                    // Update the source of the image element
+                    document.getElementById('aimg_display').src = imageDataUrl;
+                };
+
+                // Read the file as a data URL
+                reader.readAsDataURL(file2);
+            }
+        }
+    function submitForm() {
+      // Set the form action to the default backend endpoint for form submission
+      document.getElementById('myForm').action = '/submit';
+      document.getElementById('myForm').submit();
+    }
+
+    function generateReceipt() {
+      // Set the form action to the backend endpoint for generating receipt
+      document.getElementById('myForm').action = '/generate';
+
+      // Submit the form
+      document.getElementById('myForm').submit();
+    }
+    </script>
+</body>
+</html>
