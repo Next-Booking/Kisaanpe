@@ -53,20 +53,18 @@ header>h2{
 
 }
 .ham_buttons{
-    display: flex;
-    align-items: center;
+    display: block;
     padding: 1em;
+    text-decoration: none;
+    color: black;
+}
+.ham_buttons>i{
+    margin-right: 0.5em;
 }
 .ham_buttons:hover{
     cursor: pointer;
     background-color: gainsboro;
 }
-.ham_buttons>a{
-    margin-left: 0.7em;
-    text-decoration: none;
-    color: black;
-}
-
 .header__nav-section{
     height: 100vh;
     width: 50vw;
@@ -75,6 +73,7 @@ header>h2{
     right: 0;
     top: 0;
     display: none;
+    box-shadow: -3px 0px 10px #00000073;
 }
 .features__flist{
     display: flex;
@@ -186,6 +185,16 @@ footer{
     padding: 1em 0;
 
 }
+footer li{
+    margin-bottom: 0.5em;
+}
+.footer__links{
+    text-decoration: none;
+    color: black;
+}
+.footer__links:hover{
+    text-decoration: underline;
+}
 .footer__flinks h2{
     margin-left: 3em;
 }
@@ -194,12 +203,19 @@ footer{
     width: 50%;
     margin: auto;
 }
-.footer_list>li{
+.footer_list li{
     list-style: disc;
     text-align: left;
 
 }
-
+.flinks__mlinks{
+    width: 50%;
+    margin: auto;
+}
+.mlinks__list{
+    text-align: left;
+    list-style: disc;
+}
 @media (max-width: 358px){
     .lnlist--top, .lnlist--bottom{
         flex-wrap: wrap;
