@@ -20,7 +20,15 @@
                 <a  class="ham_buttons" href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #008000;"></i>Login</a>
             </section>
             <section class="header__hero-moving">
-                <img src="../static/images/hero_image.png" alt="">
+                <div class="hero-moving__img">
+                    <img id="fst"  class="move"  src="../static/images/hero_image.png" alt="">
+                    <img class="move"  src="../static/images/hero-img2.png" alt="">
+                    <img  class="move" src="../static/images/hero-img3.png" alt="">
+                    <img class="move"  src="../static/images/hero-img4.png" alt="">
+                    <img class="move"  src="../static/images/hero-img5.png" alt="">
+                    <img  class="move" src="../static/images/hero-img6.png" alt="">
+                </div>
+
             </section>
             <h2>Simple, Fast & Secure, Farming, E-Commerce</h1>
             <section class="header__features">
@@ -186,5 +194,22 @@
         </footer>
         <script src="../script/hpage.js"></script>
         <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+        <script>
+           let images =  document.querySelectorAll(".move")
+           let i = 0;
+            translation = -100
+           setInterval(function(){
+            for(let i of images){
+                i.style.transform = `translateX(${translation}%)`
+            }
+            translation -= 100
+            if(translation == -600){
+                for(let i of images){
+                i.style.transform = `translateX(${0}%)`
+                translation = -100
+                }
+            }
+           }, 3000)
+        </script>
 </body>
 </html>
