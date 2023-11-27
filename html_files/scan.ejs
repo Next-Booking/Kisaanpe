@@ -1,0 +1,31 @@
+<!-- home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Scanner</title>
+  <link rel="stylesheet" type="text/css" href="./stylesheet/home.css">
+</head>
+<body>
+  <main>
+    <div class="heading">
+      <img src="./images/kisannpe_icon.png" alt="">
+      <h1>KisaanPe</h1>
+    </div>
+
+  <div class="qr-container">
+    <div class="gradient"></div>
+    <video id="qr-video"></video>
+  </div>
+    
+    <p id="qr-result">Scanning...</p>
+  
+   
+    <script src="https://rawgit.com/cozmo/jsQR/master/dist/jsQR.js"></script>
+    <script src="./script/home.js"></script>
+  </main>
+
+</body>
+</html>

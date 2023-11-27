@@ -1,0 +1,18 @@
+<!-- views/registration-success.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle %></title>
+</head>
+<body>
+  <h1>Registration Successful!</h1>
+  
+  <!-- Display the generated custom QR code -->
+  <img src="<%= qrCodeDataUrl %>" alt="Custom QR Code">
+
+  <p>Scan the custom QR code with the app to complete the registration process.</p>
+</body>
+</html>

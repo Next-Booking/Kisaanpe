@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css"  href="../stylesheet/registration_style.css">
+    <link rel="stylesheet" type="text/css"  href="./stylesheet/registration_style.css">
 </head>
 <body>
     <main>
@@ -82,12 +82,9 @@
                 
     
                 <div class="image_column">
-                    <label for="cimg" class="cimg-label">
-                        <img src="../images/Square_profile_sizing.png" alt="" class="selectedImage" id="cimg_display">
-                        <input class="cimg-input" type="file" id="cimg" name="cimg" onchange="displayImage()" accept="image/*">
-                    </label>
+                    
                     <label for="aimg" class="cimg-label">
-                        <img src="../images/Square_profile_sizing.png" alt="" class="selectedImage" id="aimg_display">
+                        <img src="./images/Square_profile_sizing.png" alt="" class="selectedImage" id="aimg_display">
                         <input class="cimg-input" type="file" id="aimg" name="aimg" accept="image/*" onchange="displayImage2()">
                     </label>
                 </div>
@@ -98,31 +95,7 @@
           </form> 
     </main>
     <script>
-        function displayImage() {
-            // Get the file input element
-            var input = document.getElementById('cimg');
-    
-            // Get the selected file
-            var file1 = input.files[0];
-     
-            if (file1 ) {
-                // Create a FileReader
-                var reader = new FileReader();
-
-                // Set up a function to be called when the FileReader has loaded the image
-                reader.onload = function (e) {
-                    // Get the data URL representing the file
-                    var imageDataUrl = e.target.result;
-
-                    // Update the source of the image element
-                    document.getElementById('cimg_display').src = imageDataUrl;
-                };
-
-                // Read the file as a data URL
-                reader.readAsDataURL(file1);
-            }
-
-        }
+        
         function displayImage2(){
     
             var input2 = document.getElementById('aimg')

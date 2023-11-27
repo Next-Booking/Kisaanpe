@@ -1,0 +1,85 @@
+<!-- views/register.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheet/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <form id="registerForm" action="/register" method="post" enctype="multipart/form-data">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="middleName">Middle Name:</label>
+            <input type="text" id="middleName" name="middleName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district">
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" required>
+           
+            <label for="aadharNumber">Aadhar Number:</label>
+            <input type="text" id="aadharNumber" name="aadharNumber">
+
+            <label for="pinCode">Pin Code:</label>
+            <input type="text" id="pinCode" name="pinCode">
+
+            <label for="localArea">Local Area:</label>
+            <input type="text" id="localArea" name="localArea">
+
+            <label for="Password">Password:</label>
+            <input type="password" id="Password" name="Password">
+           
+            <label for="uimg" class="uimg-label">
+                <img src="./images/Square_profile_sizing.png" alt="" class="selectedImage" id="uimg_display">
+                <input class="uimg-input" type="file" id="uimg" name="uimg" onchange="displayImage()" accept="image/*">
+            </label>
+           
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        function displayImage() {
+            // Get the file input element
+            var input = document.getElementById('uimg');
+    
+            // Get the selected file
+            var file1 = input.files[0];
+     
+            if (file1 ) {
+                // Create a FileReader
+                var reader = new FileReader();
+
+                // Set up a function to be called when the FileReader has loaded the image
+                reader.onload = function (e) {
+                    // Get the data URL representing the file
+                    var imageDataUrl = e.target.result;
+
+                    // Update the source of the image element
+                    document.getElementById('uimg_display').src = imageDataUrl;
+                };
+
+                // Read the file as a data URL
+                reader.readAsDataURL(file1);
+            }
+
+        }
+    </script>
+
+</body>
+</html>
