@@ -68,19 +68,18 @@ header>h2{
     color: white;
 
 }
+
 .ham_buttons{
     display: block;
     padding: 1em;
     text-decoration: none;
     color: black;
+
 }
 .ham_buttons>i{
     margin-right: 0.5em;
 }
-.ham_buttons:hover{
-    cursor: pointer;
-    background-color: gainsboro;
-}
+
 .header__nav-section{
     height: 100vh;
     width: 50vw;
