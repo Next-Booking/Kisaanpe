@@ -76,6 +76,9 @@ header>h2{
     color: black;
 
 }
+.ham_buttons:hover{
+    background-color: gainsboro;
+}
 .ham_buttons>i{
     margin-right: 0.5em;
 }
