@@ -14,7 +14,7 @@ const session = require("express-session")
 // Create Express application
 const app = express();
 const port = 3000;
-
+const numberRegex = /^\d+$/;
 
 
 // Set up middleware
@@ -70,15 +70,25 @@ const formDataSchema = new mongoose.Schema({
     contentType: String,
   },
 });
+const animalSchema = new mongoose.Schema({
+  mnumber: String,
+  atype : String, 
+  rnumber: Number,
+  aname: String,
+  aimg:{
+    name: String,
+    data: Buffer,
+    contentType: String,
+  },
+});
+const agents = new mongoose.Schema({
+  name: String,
+  password: String,
+});
 
-// const agents = new mongoose.Schema({
-//   name: String,
-//   password: String,
-// });
-
-// const agentModel = mongoose.model("agent", agents);
+const agentModel = mongoose.model("agent", agents);
 const FormData = mongoose.model("users", formDataSchema);
-
+const animalData = mongoose.model("animal", animalSchema)
 // Serve static files (images in this case)
 
 const serveHTML = (page ,req, res) =>  {
@@ -120,25 +130,16 @@ app.get('/scan', (req, res) => {
 });
 
 
-// app.get("/:number", async (req, res) => {
-//   const num = req.params.number;
-//   try {
-//     const user_data = await FormData.findOne({ rnumber: num });
-//     if (user_data) {
-//       res.render(path.join(__dirname, "html_files", `animal_data.ejs`), {
-//         user_data,
-//       });
-//     } else {
-//       res.render(path.join(__dirname, "html_files", `client_form`), { num });
-//     }
-//   } catch {
-//     console.log("some error occured");
-//   }
-// });
 
 
-app.get("/lol",(req, res)=>{
-  serveHTML("client_form.ejs", req, res)
+app.get("/register-animal",(req, res)=>{
+  user = req.session.user;
+  if(user){
+    serveHTML("scan.ejs", req, res)
+  }
+  else{
+    res.redirect("/login")
+  }
 })
 
 app.get("/dashboard", (req, res)=>{
@@ -151,6 +152,33 @@ app.get("/dashboard", (req, res)=>{
   }
 })
 
+app.get("/:number", async (req, res) => {
+  const num = req.params.number;
+  const user = req.session.user
+  if(num.match(numberRegex)){
+    try {
+  
+        const user_data = await animalData.findOne({ rnumber: num });
+        if (user_data) {
+          res.render(path.join(__dirname, "html_files", `animal_data.ejs`), {
+            user_data
+          });
+        } else if(user){
+          res.render(path.join(__dirname, "html_files", `animal_registration.ejs`), { num });
+        }
+        else{
+         res.redirect("/login")
+        }
+
+    } catch {
+      console.log("some error occured");
+    }
+  }
+  else{
+    res.send("Invalid Request")
+  }
+
+});
 
 // Define POST routes
 app.post(
@@ -209,6 +237,36 @@ app.post(
   }
 );
 
+// const animalSchema = new mongoose.Schema({
+//   mnumber: String,
+//   atype : String, 
+//   rnumber: String,
+//   aname: String,
+// })
+app.post("/register-animal",  
+upload.fields([
+  { name: "aimg", maxCount: 1 },
+  
+]), async (req, res)=>{
+  const user = req.session.user
+  const {animalType , rnumber, aname, password} = req.body
+  const aimg = req.files["aimg"][0];
+  if(aimg){
+    const inputAnimalData = new animalData({
+      mnumber : user.mnumber,
+      atype : animalType, 
+      rnumber: rnumber,
+      aname: aname,
+      aimg: {
+        name : aimg.originalname,
+        data: aimg.buffer,
+        contentType: aimg.mimetype,
+      },
+    })
+    await inputAnimalData.save()
+    res.send("Data saved successfully")
+  }
+})
 
 app.post("/login", async (req, res) => {
   try {

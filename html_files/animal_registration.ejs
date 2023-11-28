@@ -26,7 +26,7 @@
                
                 <div class="input_sec">
                     <label class="text_label" for="rnumber">Registration Number</label>
-                    <input type="text" id="rnumber" name="rnumber"  >
+                    <input type="text" id="rnumber" name="rnumber"  value="<%= num %>" readonly>
                 </div>
                 
                 <div class="input_sec">
@@ -78,7 +78,7 @@
         }
     function submitForm() {
       // Set the form action to the default backend endpoint for form submission
-      document.getElementById('myForm').action = '/submit';
+      document.getElementById('myForm').action = '/register-animal';
       document.getElementById('myForm').submit();
     }
 
