@@ -5,28 +5,29 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-
 }
+
 img{
     display: block;
     max-width: 100%;
 }
+
 a{
     text-decoration: none;
-
 }
+
 li{
     list-style: none;
 }
 
 label{
     display: block;
-
 }
-#submit{
 
+#submit{
     display: block;
 }
+
 input{
     padding: 0.6em 0.4em;
 }
@@ -34,6 +35,7 @@ input{
 input:hover{
     cursor: pointer;
 }
+
 input:focus{
     outline: none;
 }
@@ -43,44 +45,49 @@ main{
     margin: auto;
     margin-top: 4em;
 }
+
 h1{
     text-align: center;
     margin-bottom: 2em;
 }
 
-
 .cimg-input::file-selector-button {
     display: none;
 }
+
 .cimg-label{
- width: 100%;
- border: 2px solid gainsboro;
- border-style: dashed;
- padding: 0.7em;
- cursor: pointer;
- margin-bottom: 3em;
+    width: 100%;
+    border: 2px solid gainsboro;
+    border-style: dashed;
+    padding: 0.7em;
+    cursor: pointer;
+    margin-bottom: 3em;
 }
+
 .cimg-label>img{
     margin: auto;
 }
+
 .cimg-input{
     text-align: center;
     display: block;
     width: 100%;
 }
+
 .form-dflex{
     display: flex;
     justify-content: space-between;
-
 }
+
 .image_column{
     width: 30%;
 }
+
 .input_sec{
     position: relative;
     margin-bottom: 2em;
-  
 }
+
 .text_label{
     position: absolute;
     display: inline-block;
@@ -90,19 +97,23 @@ h1{
     top: -10px;
     font-size: 0.95rem;
 }
-input[type = "text"], input[type = "email"]{
+
+input[type="text"], input[type="email"]{
     padding-top: 1em;
     padding-left: 0.9em;
 }
+
 textarea{
-    padding:  1em 0.6em;
+    padding: 1em 0.6em;
 }
+
 textarea:focus{
     outline: none;
 }
+
 .submit{
     width: 50%;
-    margin:  0 auto;
+    margin: 0 auto;
     margin-top: 3rem;
     margin-bottom: 5rem;
     padding: 1rem;
@@ -113,27 +124,63 @@ textarea:focus{
     font-size: 1.5rem;
     font-weight: 500;
     display: block;
-
-
 }
+
 .submit:hover{
     background-color: rgb(78, 152, 78);
     cursor: pointer;
 }
+
 #generate{
     background-color: red;
+}
+
+/* Styling for the dropdown */
+select{
+    width: 100%;
+    padding: 0.6em 0.4em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select:hover{
+    cursor: pointer;
+}
+
+select:focus{
+    outline: none;
+}
+
+/* Optional: Style the dropdown arrow */
+select::after{
+    content: "\25BC"; /* Unicode character for the down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Optional: Style the selected option */
+option:checked{
+    font-weight: bold;
+    color: #333;
 }
 
 @media (max-width: 920px){
     .form-dflex{
         display: block;
     }
+
     main{
         width: 50%;
     }
-    input{
+
+    input, select{
         width: 100%;
     }
+
     .image_column{
         width: 100%;
     }

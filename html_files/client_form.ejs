@@ -9,77 +9,34 @@
 <body>
     <main>
         <h1>
-            Registration Form
+           Animal Registration Form
         </h1>
         <form id="myForm" method="post" enctype="multipart/form-data">
             <div class="form-dflex">
-                <div class="form_column form_column--1">
-                    <div class="input_sec">
-                        <label class="text_label" for="fname">First name</label>
-                        <input  type="text" id="fname" name="fname">
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="mname">Middle name</label>
-                        <input type="text" id="mname" name="mname">
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="lname">Last name</label>
-                        <input type="text" id="lname" name="lname">
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="email">Email Id</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="district">District</label>
-                        <input type="text" id="district" name="district">
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="address">Full Address</label>
-                        <textarea name="address" id="address" cols="17" rows="3"></textarea>
-                    </div>
+                <div class="input_sec">
+                    <label class="text_label" for="animalType">Animal Type</label>
+                    <select id="animalType" name="animalType">
+                        <option value="" disabled selected>--Select Animal Type--</option>
+                        <option value="cow">Cow</option>
+                        <option value="buffalo">Buffalo</option>
+                        <option value="goat">Goat</option>
+                        <option value="sheep">Sheep</option>
+                    </select>
+                </div>                
+               
+                <div class="input_sec">
+                    <label class="text_label" for="rnumber">Registration Number</label>
+                    <input type="text" id="rnumber" name="rnumber"  >
                 </div>
                 
-                <div class="form_column form_column--2">
-                    <div class="input_sec">
-                        <label class="text_label" for="landarea">Land area</label>
-                        <input type="text" id="landarea" name="landarea">
-                    </div>
-
-
-                    <div class="input_sec">
-                        <label class="text_label" for="rnumber">Registration Number</label>
-                        <input type="text" id="rnumber" name="rnumber" value= <%= num %> readonly>
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="mnumber">Mobile Number</label>
-                        <input type="text" id="mnumber" name="mnumber">
-                    </div>
-
-                    <div class="input_sec">
-                        <label class="text_label" for="aadhaar">Aadhaar Number</label>
-                        <input type="text" id="aadhaar" name="aadhaar">
-                    </div>
-                    <div class="input_sec">
-                        <label class="text_label" for="pcode">Pin Code</label>
-                        <input type="text" id="pcode" name="pcode">
-                    </div>
-                    <div class="input_sec">
-                        <label class="text_label" for="agent_name">Agent Name</label>
-                        <input type="text" id="aname" name="aname">
-                    </div>
-                    <div class="input_sec">
-                        <label class="text_label" for="password">Password</label>
-                        <input type="password" id="password" name="password">
-                    </div>
+                <div class="input_sec">
+                    <label class="text_label" for="agent_name">Agent Name</label>
+                    <input type="text" id="aname" name="aname">
                 </div>
-                
+                <div class="input_sec">
+                    <label class="text_label" for="password">Agent Password</label>
+                    <input type="password" id="password" name="password">
+                </div> 
     
                 <div class="image_column">
                     
@@ -91,7 +48,6 @@
             </div>
          
             <button class="submit" onclick="submitForm()">Submit</button>
-            <button class="submit" id="generate" onclick="generateReceipt()">Generate Recipt</button>
           </form> 
     </main>
     <script>

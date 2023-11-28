@@ -135,6 +135,12 @@ app.get('/scan', (req, res) => {
 //     console.log("some error occured");
 //   }
 // });
+
+
+app.get("/lol",(req, res)=>{
+  serveHTML("client_form.ejs", req, res)
+})
+
 app.get("/dashboard", (req, res)=>{
   const user = req.session.user;
   if(user){
