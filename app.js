@@ -274,7 +274,7 @@ upload.fields([
         },
       })
       await inputAnimalData.save()
-      res.send("Data saved successfully")
+      serveHTML("registration-success.ejs", req, res)
     }
     else{
       res.send("Agent name or password is incorect")
