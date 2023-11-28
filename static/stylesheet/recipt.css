@@ -25,10 +25,14 @@ h1{
 }
 main{
     width: 80%;
-    min-width: 500px;
-    padding: 1em;
+    max-width: 1300px;
+    padding: 1em 3em; 
     background-color: #83c9721d;
-
+    background-image: url("../images/Icon-background.png");
+    background-repeat: no-repeat;
+    background-size: 180px 300px;
+    background-position: center;
+    
 }
 .spacing{
     margin-bottom: 1em;
@@ -36,9 +40,11 @@ main{
 .content{
     display: flex;
     justify-content: space-between;
+    font-size: 1.1rem;
 }   
 .images{
-    width: 30%;
+    width: 200px;
+    margin-right: 2em;
 }
 
 #cimg{
@@ -54,7 +60,7 @@ main{
 
 }
 .animal_inp{
-    width: 30px;
+    width: 100px;
     text-align: center;
 
 }
@@ -71,14 +77,44 @@ button{
     cursor: pointer;
     margin: auto;
     display: block;
+    
 }
 #date{
     border: none;
 }
 #Amount{
-    width: 100px;
+    width: 80px;
+    padding: 0.5em 0.8em ;
+    border: none;
+}
+.charge{
+
+    text-align: center;
 }
 h2{
     text-align: center;
     margin-bottom: 1em;
 }
+@media print {
+    h1{
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+    .content{
+        font-size: 0.8rem;
+    }
+    body {
+      background-color: #ffffff !important; /* Override the background color for print */
+    }
+  
+    main {
+    background-color: #83c9721d;
+    background-image: url("../images/Icon-background.png");
+    background-repeat: no-repeat;
+    background-size: 180px 300px;
+    background-position: center;
+    }
+    button{
+        display: none;
+    }
+  }

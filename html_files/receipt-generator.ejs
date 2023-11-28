@@ -1,0 +1,58 @@
+<!-- views/login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/receipt-generator.css">
+    <title>Generator</title>
+</head>
+<body>
+    <nav>
+        <div class="d-flex">
+            <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+            <p>KisaanPe</p>
+        </div>
+        <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+    </nav>
+    <section class="header__nav-section">
+        <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
+        <a  class="ham_buttons" href="/dashboard"><i class="fa-solid fa-gauge-high" style="color: #008000;"></i>Dashboard</a>
+        <a  class="ham_buttons" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #008000;"></i>Log out</a>
+    </section>
+    <main class="container">
+        <form id="loginForm" action="/generate" method="post">
+            <h1>Receipt Generator</h1> <!-- Added action and method -->
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="agent-name">Agent Name:</label>
+            <input type="text" id="agent-name" name="aname" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>  
+
+            <label for="charge">Charge:</label>
+            <input type="text" id="charge" name="charge" required>
+            
+            <label for="goat">Goat Number:</label>
+            <input type="text" id="goat" name="goat" required>
+
+            <label for="sheep">Sheep Number: </label>
+            <input type="text" id="sheep" name="sheep" required>
+
+            <label for="cow">Cow Number: </label>
+            <input type="text" id="cow" name="cow" required>
+
+            <label for="buffalo">Buffalo Number: </label>
+            <input type="text" id="buffalo" name="buffalo" required>
+
+            <button class="generate" type="submit">Generate</button>
+        </form>
+    </main>
+    <script src="./script/hpage.js"></script>
+    <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -154,8 +154,27 @@ app.get("/dashboard", async (req, res)=>{
     serveHTML("login.ejs", req, res)
   }
 })
-
-
+app.get("/recipt", async (req, res)=>{
+  user = req.session.user
+  if(user){
+    const rdata = await FormData.findOne({mnumber: user.mnumber})
+    res.render(path.join(__dirname, "html_files", `recipt.ejs`), {rdata});
+  }
+  else{
+    res.redirect("/login")
+  }
+  
+})
+app.get("/generate", (req, res)=>{
+  const user = req.session.user
+  if(user){
+    serveHTML("receipt-generator.ejs", req, res)
+  }
+  else{
+    res.send("Invalid Request")
+  }
+  
+})
 
 
 app.get("/:number", async (req, res) => {
@@ -310,71 +329,31 @@ app.post("/login", async (req, res) => {
 
 
 app.post(
-  "/generate",
-  upload.fields([
-    { name: "aimg", maxCount: 1 },
-    { name: "cimg", maxCount: 1 },
-  ]),
-  async (req, res) => {
+  "/generate", async (req, res) => {
+    const user = req.session.user
     try {
       const {
-        fname,
-        mname,
-        lname,
-        email,
-        district,
-        address,
-        landarea,
-        rnumber,
-        mnumber,
-        aadhaar,
-        pcode,
+        date,
         aname,
         password,
+        charge,
+        goat,
+        sheep,
+        cow, 
+        buffalo,
       } = req.body;
       const agent_data = await agentModel.findOne({
         name: aname,
         password: password,
       });
+      const client_data = await FormData.findOne({mnumber: user.mnumber })
       if (agent_data) {
-        const aimg = req.files["aimg"][0];
-        const cimg = req.files["cimg"][0];
-        if (aimg && cimg) {
-          const formData = new FormData({
-            fname: fname,
-            mname: mname,
-            lname: lname,
-            email: email,
-            district: district,
-            address: address,
-            landarea: landarea,
-            rnumber: rnumber,
-            mnumber: mnumber,
-            aadhaar: aadhaar,
-            pcode: pcode,
-            aname: aname,
-            password: password,
-            aimg: {
-              name: aimg.originalname,
-              data: aimg.buffer,
-              contentType: aimg.mimetype,
-            },
-            cimg: {
-              name: cimg.originalname,
-              data: cimg.buffer,
-              contentType: cimg.mimetype,
-            },
-          });
-
-          await formData.save();
           res.render(path.join(__dirname, "html_files", `recipt.ejs`), {
-            formData,
+            date,aname, charge, goat, sheep, cow, buffalo, client_data,
           });
-        } else {
-          res.send("image not chosen");
-        }
-      } else {
-        res.send("Username or password Incorrect");
+        } 
+       else {
+        res.send("Agent name or password is incorrect");
       }
     } catch (error) {
       console.error(error);

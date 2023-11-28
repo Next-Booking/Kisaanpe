@@ -71,12 +71,16 @@
                
            </section>
            <button class="add-animals">Add</button>
+           <button class="generate-receipt">Generate Receipt</button>
         </main>
 
         <script>
             document.querySelector('.add-animals').addEventListener('click', function() {
             window.location.href = '/register-animal';
             });
+            document.querySelector(".generate-receipt").addEventListener("click", function(){
+                window.location.href = "/generate"
+            })
         </script>
         <script src="./script/hpage.js"></script>
 

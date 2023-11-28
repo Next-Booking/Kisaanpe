@@ -10,68 +10,69 @@
     <main>
   
             <h1>
-                Farmerpe/ किसान पे
+                Kisaanpe/ किसान पे
             </h1>
-            <h2>Recipt</h2>
+            <h2>Recipt / रसीद</h2>
 
         <div class="content">
             <div class="text">
                 <div class="spacing">
-                    <label for="date">Date/ दिनांक:  </label>
-                    <input type="date" id="date">
-                </div>
-                <div class="spacing">
-                    <label for="Amount">Charge/ शुल्क:  </label>
-                    <input type="text" id="Amount">
+                    <p>Date / दिनांक: <%= date %> </p>
                 </div>
                 <div class="spacing">
                     <p>Beneficiary Name / हितग्राही नाम: </p>
-                    <p class="name"><%= formData.fname %> <%= formData.mname %> <%= formData.lname %></p>
+                    <p class="name"><%= client_data.fname %> <%= client_data.mname %> <%= client_data.lname %></p>
                 </div>
                 <div class="spacing">
                     <p>Mobile Number / मोबाइल नंबर: </p>
-                    <p><%= formData.mnumber %></p>
+                    <p><%= client_data.mnumber %></p>
                 </div>
                 <div class="spacing">
                     <p>Email/ ईमेल: </p>
-                    <p><%= formData.email %></p>
+                    <p><%= client_data.email %></p>
                 </div>
                 <div class="spacing">
                     <p>Address/ पता: </p>
-                    <p><%= formData.address %></p>
+                    <p><%= client_data.address %></p>
                 </div>
                 <div class="spacing">
                     <p>Area: </p>
-                    <p> <%= formData.landarea %></p>
+                    <p> <%= client_data.larea %></p>
                 </div>
                 <div class="spacing">
                     <p>Pin Code/ पिनकोड: </p>
-                    <p><%= formData.pcode %> </p>
+                    <p><%= client_data.pcode %> </p>
+                </div>
+                <div class="spacing">
+                    <p>Agent Name: / प्रतिनिधि का नाम: </p>
+                    <p><%= aname %> </p>
                 </div>
                 <div class="spacing">
                     <p>Animal Numbers/ पशु संख्या </p>
                     <div class="inp_section">
-                        <label for="cow">गाय</label>
-                        <input type="text" id="cow" class="animal_inp">
-                        <label for="buffalo">भैंस</label>
-                        <input type="text" id="buffalo"  class="animal_inp">                  
-                        <label for="goat">बकरी</label>
-                        <input type="text" id="goat"  class="animal_inp">  
-                        
+                        <p class="animal_inp">बकरी: <%= goat %></p>
+                        <p class="animal_inp">भेड़: <%= sheep %></p>
+                        <p class="animal_inp">गाय: <%= cow %></p>
+                        <p class="animal_inp">भैंस: <%= buffalo %></p>
                     </div>  
             
                 </div>
 
 
+
             </div>
             <div class="images">
 
-                    <img id="cimg" src="data:<%= formData.cimg.contentType %>;base64,<%= formData.cimg.data.toString('base64') %>" alt="">
+                    <img id="cimg" src="data:<%= client_data.uimg.contentType %>;base64,<%= client_data.uimg.data.toString('base64') %>" alt="">
         
             </div>
 
             
             
+        </div>
+        <div class="charge">
+            <p>Charge/ शुल्क:  <%= charge %>₹</p>
+    
         </div>
         <button onclick="printPage()">PRINT</button>
 
