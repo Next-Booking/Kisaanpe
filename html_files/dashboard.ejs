@@ -19,10 +19,9 @@
                 </div>
                 <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
 
-
             </nav>
             <section class="header__nav-section">
-                <a  class="ham_buttons" href="/home"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
+                <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
                 <a  class="ham_buttons" href="/logout"><i class="fa-solid fa-right-from-bracket" style="color: #008000;"></i>Log out</a>
             </section>
 
@@ -34,19 +33,19 @@
 
                 <section class="details-section">
                     <p>
-                         <b>Beneficiary Name:</b>  Umesh Kumar
+                         <b>Beneficiary Name:</b>  <%= user.fname %> <%= user.lname %>
                     </p>
                     <p>
-                        <b>Mobile Number:</b> 9589883539 
+                        <b>Mobile Number:</b> <%= user.mnumber %>
                     </p>
                     <p>
-                         <b>Email</b> : kisanpe@gmail.com
+                         <b>Email</b> : <%= user.email %>
                      </p>
                     <p>
-                         <b>Address:</b> 19, pancheswar marg, bohra kabristan road, baharpura, alirajpur, Madhya pradesh, India
+                         <b>Address:</b> <%= user.address %>
                     </p>
                     <p>
-                         <b>Pin Code:</b>457887
+                         <b>Pin Code:</b><%= user.pcode %>
                     </p>
                     <p>
                         <b>Animal Number:</b> <br> 1 Cow, 2 Buffalos, 0 Goats

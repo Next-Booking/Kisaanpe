@@ -6,9 +6,9 @@ const multer = require("multer");
 const path = require("path");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-const jwt = require('jsonwebtoken');
-const qrHandler = require('./static/script/qr-handler');
 
+const qrHandler = require('./static/script/qr-handler');
+const session = require("express-session")
 
 
 // Create Express application
@@ -19,10 +19,15 @@ const port = 3000;
 
 // Set up middleware
 app.use(express.static(path.join(__dirname, "static")));
+app.use(express.urlencoded({extended: true}))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/js', express.static(__dirname + '/js'));
-
+app.use(session({
+  secret: 'your-secret-key',
+  resave: true,
+  saveUninitialized: true
+}));
 app.set("view engine", "ejs");
 
 
@@ -82,8 +87,14 @@ const serveHTML = (page ,req, res) =>  {
 
 // Define GET routes
 app.get("/", (req, res) => {
-  // Render the home page with the QR code scanner
-  serveHTML("home_page.ejs", req, res)
+  const user = req.session.user
+  if(user){
+    serveHTML("home_page_dash.ejs", req, res)
+  }
+  else{
+    serveHTML("home_page.ejs", req, res)
+  }
+  
 });
 
 app.get("/logout", (req, res) => {
@@ -125,8 +136,13 @@ app.get('/scan', (req, res) => {
 //   }
 // });
 app.get("/dashboard", (req, res)=>{
-  console.log(req.body)
-  serveHTML("dashboard.ejs", req, res)
+  const user = req.session.user;
+  if(user){
+    res.render(path.join(__dirname, "html_files", `dashboard.ejs`), {user});
+  }
+  else{
+    serveHTML("login.ejs", req, res)
+  }
 })
 
 
@@ -176,7 +192,7 @@ app.post(
           });
 
           await formData.save();
-          res.send("Form data submitted successfully!");
+          res.redirect("/login")
         } else {
           res.send("image not chosen");
         }
@@ -190,29 +206,14 @@ app.post(
 
 app.post("/login", async (req, res) => {
   try {
-    console.log(req.body)
-    const { number, password } = req.body;
-    console.log(number, password)
-    const registration = await FormData.findOne({ mnumber: number, password: password });
-    console.log(registration)
-    if (registration) {
-      const token = jwt.sign(
-        {
-          _id: registration._id,
-          firstName: registration.fname,
-          middleName: registration.mname,
-          lastName: registration.lname,
-          mobileNumber: registration.mnumber,
-          email: registration.email,
-          district: registration.district,
-          address: registration.address,
-          aadhaar : registration.aadhaar,
-          pcode: registration.pcode,
 
-        },
-        'your-secret-key'
-      );
-        
+    const { number, password } = req.body;
+
+    const registration = await FormData.findOne({ mnumber: number, password: password });
+
+    if (registration) {
+      req.session.user = registration
+      res.redirect('/dashboard')  
       
     } else {
       res.status(401).json({ message: 'Invalid phone number or password' });

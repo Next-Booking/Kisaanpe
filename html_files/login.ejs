@@ -10,16 +10,30 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="container">
-        <form id="loginForm" action="/login" method="post"> <!-- Added action and method -->
-            <label for="email">Email/Phone:</label>
+    <nav>
+        <div class="d-flex">
+            <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+            <p>KisaanPe</p>
+        </div>
+        <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+    </nav>
+    <section class="header__nav-section">
+        <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
+        <a  class="ham_buttons" href="/register"><i class="fa-solid fa-user-plus" style="color: #008000;"></i>Register</a>
+    </section>
+    <main class="container">
+        <form id="loginForm" action="/login" method="post">
+            <h1>Login</h1> <!-- Added action and method -->
+            <label for="email">Phone:</label>
             <input type="text" id="email" name="number" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit">Login</button>
+            <button class="login" type="submit">Login</button>
         </form>
-    </div>
+    </main>
+    <script src="./script/hpage.js"></script>
+    <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
 </body>
 </html>
