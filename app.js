@@ -250,7 +250,6 @@ app.post(
   }
 );
 
-
 app.post("/register-animal",  
 upload.fields([
   { name: "aimg", maxCount: 1 },
@@ -259,22 +258,35 @@ upload.fields([
   const user = req.session.user
   const {animalType , rnumber, aname, password} = req.body
   const aimg = req.files["aimg"][0];
+  const agent = await agentModel.findOne({name : aname, password: password})
+
   if(aimg){
-    const inputAnimalData = new animalData({
-      mnumber : user.mnumber,
-      atype : animalType, 
-      rnumber: rnumber,
-      aname: aname,
-      aimg: {
-        name : aimg.originalname,
-        data: aimg.buffer,
-        contentType: aimg.mimetype,
-      },
-    })
-    await inputAnimalData.save()
-    res.send("Data saved successfully")
+    if(agent){
+      const inputAnimalData = new animalData({
+        mnumber : user.mnumber,
+        atype : animalType, 
+        rnumber: rnumber,
+        aname: aname,
+        aimg: {
+          name : aimg.originalname,
+          data: aimg.buffer,
+          contentType: aimg.mimetype,
+        },
+      })
+      await inputAnimalData.save()
+      res.send("Data saved successfully")
+    }
+    else{
+      res.send("Agent name or password is incorect")
+    }
+
   }
-})
+  else{
+    res.send("Image not chosen")
+  }
+}
+
+)
 
 app.post("/login", async (req, res) => {
   try {

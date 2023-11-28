@@ -10,6 +10,17 @@
     <title>Register</title>
 </head>
 <body>
+    <nav>
+        <div class="d-flex">
+            <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+            <p>KisaanPe</p>
+        </div>
+        <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+    </nav>
+    <section class="header__nav-section">
+        <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
+        <a  class="ham_buttons" href="/logout"><i class="fa-solid fa-right-to-bracket" style="color: #008000;"></i>Login</a>
+    </section>
     <div class="container">
         <form id="registerForm" action="/register" method="post" enctype="multipart/form-data">
             <label for="firstName">First Name:</label>
@@ -53,6 +64,7 @@
             <button type="submit">Register</button>
         </form>
     </div>
+    <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
     <script>
         function displayImage() {
             // Get the file input element
@@ -80,6 +92,7 @@
 
         }
     </script>
-
+    <script src="./script/hpage.js"></script>
+    
 </body>
 </html>

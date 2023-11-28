@@ -7,54 +7,71 @@
     <link rel="stylesheet" href="./stylesheet/animal_data.css">
 </head>
 <body>
+    <nav>
+        <div class="d-flex">
+            <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+            <p>KisaanPe</p>
+        </div>
+        <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+    </nav>
+    <section class="header__nav-section">
+        <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
+    </section>
     <main>
-        <div class="heading-dflex">   
-            <div class="image_circle">
-                <img src="./images/Group 81.png" alt="">
-            </div>
-            <h1>
-                KisaanPe
-            </h1>
-        </div>
-        <div class="content">
-            <div class="text">
-                <div class="spacing">
-                    <p class="field-name">Beneficiary Name / हितग्राही नाम: </p>
-                    <p class="user-data"><%= owner_data.fname %> <%= owner_data.lname %></p>
+        <div>
+            <div class="content">
+                <div class="text">
+                    <div class="spacing">
+                        <p class="field-name">Beneficiary Name / हितग्राही नाम: </p>
+                        <p class="user-data"><%= owner_data.fname %> <%= owner_data.lname %></p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Mobile Number / मोबाइल नंबर: </p>
+                        <p class="user-data"><%= owner_data.mnumber %></p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Email/ ईमेल: </p>
+                        <p class="user-data email"><%= owner_data.email %></p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Address/ पता: </p>
+                        <p class="user-data"><%= owner_data.address %></p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Area: </p>
+                        <p class="user-data"> <%= owner_data.larea %></p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Pin Code/ पिनकोड: </p>
+                        <p class="user-data"><%= owner_data.pcode %> </p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Animal/ पशु: </p>
+                        <p class="user-data"><%= animal_data.atype %> </p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Registration No :/ पंजीकरण संख्या: </p>
+                        <p class="user-data"><%= animal_data.rnumber %> </p>
+                    </div>
+                    <div class="spacing">
+                        <p class="field-name">Agent Name :/ प्रतिनिधि का नाम :  </p>
+                        <p class="user-data"><%= animal_data.aname %> </p>
+                    </div>
+    
                 </div>
-                <div class="spacing">
-                    <p class="field-name">Mobile Number / मोबाइल नंबर: </p>
-                    <p class="user-data"><%= owner_data.mnumber %></p>
-                </div>
-                <div class="spacing">
-                    <p class="field-name">Email/ ईमेल: </p>
-                    <p class="user-data email"><%= owner_data.email %></p>
-                </div>
-                <div class="spacing">
-                    <p class="field-name">Address/ पता: </p>
-                    <p class="user-data"><%= owner_data.address %></p>
-                </div>
-                <div class="spacing">
-                    <p class="field-name">Area: </p>
-                    <p class="user-data"> <%= owner_data.larea %></p>
-                </div>
-                <div class="spacing">
-                    <p class="field-name">Pin Code/ पिनकोड: </p>
-                    <p class="user-data"><%= owner_data.pcode %> </p>
-                </div>
-
-            </div>
-            <div class="images">
-
-                    <img id="uimg" src="data:<%= owner_data.uimg.contentType %>;base64,<%= owner_data.uimg.data.toString('base64') %>" alt="Not found">
-                    <img id="aimg" src="data:<%= animal_data.aimg.contentType %>;base64,<%= animal_data.aimg.data.toString('base64') %>" alt="Not found">
-        
-            </div>
+                <div class="images">
+    
+                        <img id="uimg" src="data:<%= owner_data.uimg.contentType %>;base64,<%= owner_data.uimg.data.toString('base64') %>" alt="Not found">
+                        <img id="aimg" src="data:<%= animal_data.aimg.contentType %>;base64,<%= animal_data.aimg.data.toString('base64') %>" alt="Not found">
             
+                </div>
+                
+            </div>
+    
         </div>
-
+        
     </main>
-
-
+    <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+    <script src="./script/hpage.js"></script>
 </body>
 </html>
