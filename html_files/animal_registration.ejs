@@ -7,6 +7,18 @@
     <link rel="stylesheet" type="text/css"  href="./stylesheet/registration_style.css">
 </head>
 <body>
+    <nav>
+        <div class="d-flex">
+            <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+            <p>KisaanPe</p>
+        </div>
+        <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+    </nav>
+    <section class="header__nav-section">
+        <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
+        <a  class="ham_buttons" href="/dashboard"><i class="fa-solid fa-gauge-high" style="color: #008000;"></i>Dashboard</a>
+        <a  class="ham_buttons" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #008000;"></i>Log out</a>
+    </section>
     <main>
         <h1>
            Animal Registration Form
@@ -50,6 +62,8 @@
             <button class="submit" onclick="submitForm()">Submit</button>
           </form> 
     </main>
+    <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+    <script src="../script/hpage.js"></script>
     <script>
         
         function displayImage2(){
