@@ -35,8 +35,8 @@ body{
     margin-bottom: 3em;
 }
 main{
-    width: 50%;
-    min-width: 340px;
+    width: 90%;
+    min-width: 300px;
     padding: 1em;
     background-color: white;
 
@@ -49,14 +49,25 @@ main{
     justify-content: space-between;
 }   
 .images{
-    width: 30%;
+
+    width: 40%;
 }
-#cimg{
+#uimg{
     margin-bottom: 4em;
 }
-#cimg, #aimg{
+#uimg, #aimg{
     width: 100%;
 }
 .text{
     width: 50%;
+
+}
+.user-data{
+    font-size: 0.9rem;
+}
+.field-name{
+    font-weight: 500;
+}
+.email{
+    font-size: 0.7rem;
 }

@@ -28,45 +28,47 @@
         </header>
         <main>
             <section class="user-card">
-                <img class="farmer_img" src="./images/Farmer.png" alt="">
-
+                <img class="farmer_img" src="data:<%= rdata.uimg.contentType %>;base64,<%= rdata.uimg.data.toString('base64') %>" alt="Not found">
 
                 <section class="details-section">
                     <p>
-                         <b>Beneficiary Name:</b>  <%= user.fname %> <%= user.lname %>
+                         <b>Beneficiary Name:</b>  <%= rdata.fname %> <%= rdata.lname %>
                     </p>
                     <p>
-                        <b>Mobile Number:</b> <%= user.mnumber %>
+                        <b>Mobile Number:</b> <%= rdata.mnumber %>
                     </p>
                     <p>
-                         <b>Email</b> : <%= user.email %>
+                         <b>Email</b> : <%= rdata.email %>
                      </p>
                     <p>
-                         <b>Address:</b> <%= user.address %>
+                         <b>Address:</b> <%= rdata.address %>
                     </p>
                     <p>
-                         <b>Pin Code:</b><%= user.pcode %>
+                         <b>Pin Code:</b><%= rdata.pcode %>
                     </p>
                     <p>
-                        <b>Animal Number:</b> <br> 1 Cow, 2 Buffalos, 0 Goats
+                        <b>Animal Number:</b> <br> <%=  adata.length %>
                     </p>
                 </section> 
             </section>
            
            <section class="animals-section">
             <h2>Animals</h2>
-
-                <div class="animal-data">
-                    <img src="./images/cow_image_red.png" alt="">
-
-
-
-                    <div>
-                        <p> <b>Registration No:</b> 456</p>
-                        <p> <b>Animal: </b> Cow </p>
+            <% if (adata.length > 0) { %>
+                <% adata.forEach((item) => { %>
+                    <div class="animal-data">
+                   
+                        <img src="data:<%= item.aimg.contentType %>;base64,<%= item.aimg.data.toString('base64') %>" alt="Not found">
+                       <div>
+                        <p>Registration NO:  <%= item.rnumber %></p>
+                        <p>Animal:  <%= item.atype %></p>
+                       </div>
                     </div>
-                </div>
-
+                  <% }) %>
+              <% } else { %>
+                <p>No Animals</p>
+              <% } %>
+               
            </section>
            <button class="add-animals">Add</button>
         </main>

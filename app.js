@@ -73,7 +73,7 @@ const formDataSchema = new mongoose.Schema({
 const animalSchema = new mongoose.Schema({
   mnumber: String,
   atype : String, 
-  rnumber: Number,
+  rnumber: String,
   aname: String,
   aimg:{
     name: String,
@@ -142,10 +142,13 @@ app.get("/register-animal",(req, res)=>{
   }
 })
 
-app.get("/dashboard", (req, res)=>{
+app.get("/dashboard", async (req, res)=>{
   const user = req.session.user;
+
   if(user){
-    res.render(path.join(__dirname, "html_files", `dashboard.ejs`), {user});
+    const rdata = await FormData.findOne({mnumber: user.mnumber})
+    const adata = await animalData.find({mnumber: user.mnumber})
+    res.render(path.join(__dirname, "html_files", `dashboard.ejs`), {rdata, adata});
   }
   else{
     serveHTML("login.ejs", req, res)
@@ -156,22 +159,26 @@ app.get("/:number", async (req, res) => {
   const num = req.params.number;
   const user = req.session.user
   if(num.match(numberRegex)){
+
     try {
-  
-        const user_data = await animalData.findOne({ rnumber: num });
-        if (user_data) {
+        const animal_data = await animalData.findOne({ rnumber: num });
+        if(animal_data){
+          const owner_data = await FormData.findOne({mnumber: animal_data.mnumber })
+         
           res.render(path.join(__dirname, "html_files", `animal_data.ejs`), {
-            user_data
+            animal_data, owner_data
           });
-        } else if(user){
+        }
+        else if(user){
           res.render(path.join(__dirname, "html_files", `animal_registration.ejs`), { num });
         }
         else{
          res.redirect("/login")
         }
 
-    } catch {
+    } catch(error) {
       console.log("some error occured");
+      console.log(error)
     }
   }
   else{
@@ -189,7 +196,7 @@ app.post(
   ]),
   async (req, res) => {
     try {
-      console.log(req.body)
+
       const {
         firstName,
         middleName,

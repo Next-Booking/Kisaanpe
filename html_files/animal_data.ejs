@@ -13,41 +13,41 @@
                 <img src="./images/Group 81.png" alt="">
             </div>
             <h1>
-                Farmerpe
+                KisaanPe
             </h1>
         </div>
         <div class="content">
             <div class="text">
                 <div class="spacing">
-                    <p>Beneficiary Name / हितग्राही नाम: </p>
-                    <p class="name"><%= user.fname %> <%= user_data.lname %></p>
+                    <p class="field-name">Beneficiary Name / हितग्राही नाम: </p>
+                    <p class="user-data"><%= owner_data.fname %> <%= owner_data.lname %></p>
                 </div>
                 <div class="spacing">
-                    <p>Mobile Number / मोबाइल नंबर: </p>
-                    <p><%= user.mnumber %></p>
+                    <p class="field-name">Mobile Number / मोबाइल नंबर: </p>
+                    <p class="user-data"><%= owner_data.mnumber %></p>
                 </div>
                 <div class="spacing">
-                    <p>Email/ ईमेल: </p>
-                    <p><%= user.email %></p>
+                    <p class="field-name">Email/ ईमेल: </p>
+                    <p class="user-data email"><%= owner_data.email %></p>
                 </div>
                 <div class="spacing">
-                    <p>Address/ पता: </p>
-                    <p><%= user.address %></p>
+                    <p class="field-name">Address/ पता: </p>
+                    <p class="user-data"><%= owner_data.address %></p>
                 </div>
                 <div class="spacing">
-                    <p>Area: </p>
-                    <p> <%= user.larea %></p>
+                    <p class="field-name">Area: </p>
+                    <p class="user-data"> <%= owner_data.larea %></p>
                 </div>
                 <div class="spacing">
-                    <p>Pin Code/ पिनकोड: </p>
-                    <p><%= user.pcode %> </p>
+                    <p class="field-name">Pin Code/ पिनकोड: </p>
+                    <p class="user-data"><%= owner_data.pcode %> </p>
                 </div>
 
             </div>
             <div class="images">
 
-                    <img id="uimg" src="data:<%= user.uimg.contentType %>;base64,<%= user.uimg.data.toString('base64') %>" alt="No found">
-                    <img id="aimg" src="data:<%= user_data.aimg.contentType %>;base64,<%= user_data.aimg.data.toString('base64') %>" alt="Not found">
+                    <img id="uimg" src="data:<%= owner_data.uimg.contentType %>;base64,<%= owner_data.uimg.data.toString('base64') %>" alt="Not found">
+                    <img id="aimg" src="data:<%= animal_data.aimg.contentType %>;base64,<%= animal_data.aimg.data.toString('base64') %>" alt="Not found">
         
             </div>
             
