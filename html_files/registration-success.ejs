@@ -1,18 +1,34 @@
-<!-- views/registration-success.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= pageTitle %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheet/reg_succ.css"> <!-- Add your stylesheets here -->
+    <title>Registration Successful</title>
 </head>
 <body>
-  <h1>Registration Successful!</h1>
-  
-  <!-- Display the generated custom QR code -->
-  <img src="<%= qrCodeDataUrl %>" alt="Custom QR Code">
 
-  <p>Scan the custom QR code with the app to complete the registration process.</p>
+    <!-- Navbar Code -->
+    <nav>
+        <div class="d-flex">
+            <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+            <p>KisaanPe</p>
+        </div>
+        <button><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+    </nav>
+    <section class="header__nav-section">
+        <a  class="ham_buttons" href="/dashboard"><i class="fa-solid fa-gauge-high" style="color: #008000;"></i>Dashboard</a>
+        <a  class="ham_buttons" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #008000;"></i>Log out</a>
+    </section>
+
+    <!-- Registration Successful Content -->
+    <div class="registration-success">
+        <img src="./images/Screenshot_2023-11-28_205135-removebg-preview.png" alt="Registration Successful Logo">
+        <p>Registration Successful</p>
+        <button onclick="window.location.href='/'">Go to Homepage</button>
+    </div>
+    <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+    <script src="./script/hpage.js"></script>
+    <!-- Add your scripts here if needed -->
 </body>
 </html>

@@ -155,6 +155,9 @@ app.get("/dashboard", async (req, res)=>{
   }
 })
 
+
+
+
 app.get("/:number", async (req, res) => {
   const num = req.params.number;
   const user = req.session.user
@@ -186,6 +189,9 @@ app.get("/:number", async (req, res) => {
   }
 
 });
+
+
+
 
 // Define POST routes
 app.post(
@@ -244,12 +250,7 @@ app.post(
   }
 );
 
-// const animalSchema = new mongoose.Schema({
-//   mnumber: String,
-//   atype : String, 
-//   rnumber: String,
-//   aname: String,
-// })
+
 app.post("/register-animal",  
 upload.fields([
   { name: "aimg", maxCount: 1 },
@@ -294,8 +295,6 @@ app.post("/login", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-
 
 
 app.post(
@@ -371,7 +370,6 @@ app.post(
     }
   }
 );
-
 
 
 // Start the server
