@@ -53,6 +53,12 @@ main>div{
 }
 #uimg{
     margin-bottom: 4em;
+    border: 2px solid #66BD66;
+    border-radius: 10px;
+}
+#aimg{
+    border: 2px solid #66BD66;
+    border-radius: 10px;
 }
 #uimg, #aimg{
     width: 100%;

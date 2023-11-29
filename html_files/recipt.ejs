@@ -9,17 +9,23 @@
 </head>
 <body>
     <main>
-  
             <h1>
                 Kisaanpe/ किसान पे
             </h1>
             <h2>Recipt / रसीद</h2>
+            <div class="date_usrnumber">
+                <div>
+                    <p>Date / दिनांक: <%= date %> </p>
+                </div>
+                <div>
+                    रजिस्ट्रेशन नंबर :  <%- String(client_data.usrnumber).padStart(7, '0') %>
+
+                </div>
+            </div>
 
         <div class="content">
             <div class="text">
-                <div class="spacing">
-                    <p>Date / दिनांक: <%= date %> </p>
-                </div>
+
                 <div class="spacing">
                     <p>Beneficiary Name / हितग्राही नाम: </p>
                     <p class="name"><%= client_data.fname %> <%= client_data.mname %> <%= client_data.lname %></p>
@@ -35,10 +41,6 @@
                 <div class="spacing">
                     <p>Address/ पता: </p>
                     <p><%= client_data.address %></p>
-                </div>
-                <div class="spacing">
-                    <p>Area: </p>
-                    <p> <%= client_data.larea %></p>
                 </div>
                 <div class="spacing">
                     <p>Pin Code/ पिनकोड: </p>
@@ -58,9 +60,6 @@
                     </div>  
             
                 </div>
-
-
-
             </div>
             <div class="images">
 

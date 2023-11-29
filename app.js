@@ -64,6 +64,7 @@ const formDataSchema = new mongoose.Schema({
   pcode: String,
   larea: String,
   password: String,
+  usrnumber: String,
   uimg: {
     name: String,
     data: Buffer,
@@ -237,6 +238,8 @@ app.post(
       } = req.body;
 
         const uimg = req.files["uimg"][0];
+        let usrnumber = await FormData.countDocuments()
+        usrnumber += 1; 
         if (uimg) {
           const formData = new FormData({
             fname: firstName,
@@ -250,6 +253,7 @@ app.post(
             pcode: pinCode,
             larea: localArea,
             password: Password,
+            usrnumber: usrnumber,
             uimg: {
               name: uimg.originalname,
               data: uimg.buffer,

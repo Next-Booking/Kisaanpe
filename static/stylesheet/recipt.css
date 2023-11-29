@@ -32,7 +32,7 @@ main{
     background-repeat: no-repeat;
     background-size: 180px 300px;
     background-position: center;
-    
+    position: relative;
 }
 .spacing{
     margin-bottom: 1em;
@@ -44,11 +44,11 @@ main{
 }   
 .images{
     width: 200px;
-    margin-right: 2em;
+
 }
 
 #cimg{
-    width: 100%;
+    width: 200px;
 }
 .text{
     width: 50%;
@@ -95,13 +95,32 @@ h2{
     text-align: center;
     margin-bottom: 1em;
 }
+.usrnumber{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.date_usrnumber{
+    
+     display: flex;
+     justify-content: space-between;
+}
 @media print {
+    .charge{
+        font-size: 0.8rem;
+    }
+    .spacing{
+        margin-bottom: 0.5em;
+    }
     h1{
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-bottom: 0;
     }
+    h2{
+        font-size: 0.7rem;
+    }
     .content{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     body {
       background-color: #ffffff !important; /* Override the background color for print */
@@ -111,8 +130,14 @@ h2{
     background-color: #83c9721d;
     background-image: url("../images/Icon-background.png");
     background-repeat: no-repeat;
-    background-size: 180px 300px;
+    background-size: 100px 200px;
     background-position: center;
+    height: 43%;
+    width: 100%;
+
+    }
+    body{
+        display: block;
     }
     button{
         display: none;
