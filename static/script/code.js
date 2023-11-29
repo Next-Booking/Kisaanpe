@@ -3,6 +3,7 @@
 const video = document.getElementById('qr-video');
 const resultElement = document.getElementById('qr-result');
 
+
 navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
   .then((stream) => {
     video.srcObject = stream;
@@ -29,15 +30,19 @@ function tick() {
 
     if (code) {
       resultElement.innerHTML = 'QR Code detected: ' + code.data;
-      window.location.href = code.data; // Redirect to the link stored in the QR code
+      window.location.href = "http://"+code.data;
+      return
+ 
     } else {
       resultElement.innerHTML = 'Scanning...';
+      requestAnimationFrame(tick);
     }
   }
 
-  requestAnimationFrame(tick);
+  
 }
 
 function redirectToGeneratePage() {
   window.location.href = '/generate';
 }
+

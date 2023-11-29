@@ -5,27 +5,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=()">
   <title>QR Code Scanner</title>
   <link rel="icon" href="./images/kisannpe_icon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="./stylesheet/home.css">
+  <link rel="stylesheet" type="text/css" href="./stylesheet/scanner.css">
+
+
 </head>
 <body>
-  <main>
-    <div class="heading">
-      <img src="./images/kisannpe_icon.png" alt="">
-      <h1>KisaanPe</h1>
-    </div>
+  <nav>
+    <div class="d-flex">
 
-  <div class="qr-container">
-    <div class="gradient"></div>
-    <video id="qr-video"></video>
-  </div>
+        <img class="nav__icon" src="./images/wheat_in_greencircle.svg" alt="">
+        <p>KisaanPe</p>
+    </div>
+    <button ><img id="hamburger_button" src="./images/hamburder_image.svg" alt=""></button>
+
+</nav>
+<section class="header__nav-section">
+    <a  class="ham_buttons" href="/"><i class="fa-solid fa-house" style="color: #008000;"></i>Home</a>
     
-    <p id="qr-result">Scanning...</p>
+</section>
+  <main>
+    <div>
+      <div class="heading">
+        <img src="./images/kisannpe_icon.png" alt="">
+        <h1>KisaanPe</h1>
+      </div>
   
+    <div class="qr-container">
+      <div class="gradient"></div>
+      <video id="qr-video"></video>
+    </div>
+      
+      <p id="qr-result">Scanning...</p>
+    
+      <script src="https://rawgit.com/cozmo/jsQR/master/dist/jsQR.js"></script>
+      <script src="./script/code.js"></script>
+      <script src="./script/hpage.js"></script>
+      <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+    </div>
    
-    <script src="https://rawgit.com/cozmo/jsQR/master/dist/jsQR.js"></script>
-    <script src="./script/home.js"></script>
   </main>
 
 </body>
