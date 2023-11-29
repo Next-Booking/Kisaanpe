@@ -57,16 +57,19 @@ button {
  cursor: pointer;
  margin-bottom: 3em;
  text-align: center;
+
 }
 .uimg-label>img{
     display: block;
     margin: auto;
+    width: 150px;
 }
 .uimg-input{
  
     text-align: center;
 
 }
+
 nav p{
     font-weight: 500;
     font-size: 1.4rem;

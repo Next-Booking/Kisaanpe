@@ -29,20 +29,25 @@ function tick() {
     const code = jsQR(imageData.data, imageData.width, imageData.height);
 
     if (code) {
-      resultElement.innerHTML = 'QR Code detected: ' + code.data;
-      window.location.href = "http://"+code.data;
-      return
- 
+      const qrData = code.data;
+      resultElement.innerHTML = 'QR Code detected: ' + qrData;
+
+      // Check if the QR code data starts with "kisaanpe.com"
+      if (qrData.startsWith("kisaanpe.com")) {
+        // If yes, redirect to the scanned URL
+        window.location.href = "http://" + qrData;
+        return;
+      } else {
+        // If no, display a message or handle it as needed
+        resultElement.innerHTML = 'Scanning...';
+      }
     } else {
       resultElement.innerHTML = 'Scanning...';
-      requestAnimationFrame(tick);
     }
+    
   }
 
-  
+  requestAnimationFrame(tick);
 }
 
-function redirectToGeneratePage() {
-  window.location.href = '/generate';
-}
 
