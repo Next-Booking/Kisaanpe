@@ -236,8 +236,13 @@ app.post(
         localArea,
         Password,
       } = req.body;
-
+      try{
         const uimg = req.files["uimg"][0];
+      }
+      catch{
+        res.send("You have not chosen any image")
+      }
+        
         let usrnumber = await FormData.countDocuments()
         usrnumber += 1; 
         if (uimg) {

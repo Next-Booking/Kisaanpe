@@ -60,6 +60,7 @@
             <label for="uimg" class="uimg-label">
                 <img src="./images/Square_profile_sizing.png" alt="" class="selectedImage" id="uimg_display">
                 <input class="uimg-input" type="file" id="uimg" name="uimg" onchange="displayImage()" accept="image/*">
+                <p id="errorMessage"></p>
             </label>
            
             <button type="submit">Register</button>
@@ -67,6 +68,7 @@
     </div>
     <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
     <script>
+        let iserror = false
         function displayImage() {
             // Get the file input element
             var input = document.getElementById('uimg');
@@ -82,9 +84,11 @@
                 reader.onload = function (e) {
                     // Get the data URL representing the file
                     var imageDataUrl = e.target.result;
-
+                    if(!iserror){
+                        document.getElementById('uimg_display').src = imageDataUrl;
+                    }
                     // Update the source of the image element
-                    document.getElementById('uimg_display').src = imageDataUrl;
+                    
                 };
 
                 // Read the file as a data URL
@@ -92,6 +96,28 @@
             }
 
         }
+        document.getElementById('uimg').addEventListener('change', function () {
+        const disp = document.querySelector("#uimg_display")
+        const fileInput = this;
+        const errorMessage = document.getElementById('errorMessage');
+        const maxSizeInBytes = 2 * 1024 * 1024; // 4MB
+
+        if (fileInput.files.length > 0) {
+            const fileSize = fileInput.files[0].size;
+
+            if (fileSize > maxSizeInBytes) {
+                errorMessage.textContent = 'Error: Image size must be less than 2MB.';
+                fileInput.value = ''; // Clear the file input
+                iserror = true
+                disp.src = "./images/Square_profile_sizing.png"
+            } 
+            else {
+                errorMessage.textContent = '';
+                iserror = false // Clear any previous error messages
+                }
+         }
+        });
+
     </script>
     <script src="./script/hpage.js"></script>
     
