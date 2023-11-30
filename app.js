@@ -236,12 +236,9 @@ app.post(
         localArea,
         Password,
       } = req.body;
-      try{
-        const uimg = req.files["uimg"][0];
-      }
-      catch{
-        res.send("You have not chosen any image")
-      }
+
+      const uimg = req.files["uimg"][0];
+
         
         let usrnumber = await FormData.countDocuments()
         usrnumber += 1; 
@@ -305,7 +302,9 @@ upload.fields([
       serveHTML("registration-success.ejs", req, res)
     }
     else{
-      res.send("Agent name or password is incorect")
+      const goback = "Go back to animal registration"
+      const lnk = "/register-animal"
+      res.render(path.join(__dirname, "html_files", `wrong_agent.ejs`), { goback, lnk })
     }
 
   }
@@ -328,7 +327,7 @@ app.post("/login", async (req, res) => {
       res.redirect('/dashboard')  
       
     } else {
-      res.status(401).json({ message: 'Invalid phone number or password' });
+     serveHTML("wrong_login.ejs", req, res)
     }
   } catch (error) {
     console.error(error);
@@ -362,7 +361,9 @@ app.post(
           });
         } 
        else {
-        res.send("Agent name or password is incorrect");
+        const goback = "Go back to generate receipt"
+        const lnk = "/generate"
+        res.render(path.join(__dirname, "html_files", `wrong_agent.ejs`), { goback, lnk })
       }
     } catch (error) {
       console.error(error);
