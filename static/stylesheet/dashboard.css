@@ -89,11 +89,12 @@ nav{
     align-items: center;
     margin-bottom: 1em;
     border: 4px dashed gainsboro;
-
+    gap: 20px
+    ;
 }
 .animal-data>img{
-    width: 30%;
-
+    width: 40%;
+    max-height: 200px;
     
 }
 .add-animals{

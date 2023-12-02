@@ -49,7 +49,7 @@ main>div{
 }   
 .images{
 
-    width: 40%;
+    width: 45%;
 }
 #uimg{
     margin-bottom: 4em;
@@ -61,21 +61,24 @@ main>div{
     border-radius: 10px;
 }
 #uimg, #aimg{
-    width: 100%;
+   width: 100%;
+   max-width: 150px;
+   height: 200px;
+
 }
 .text{
-    width: 50%;
+    width: 45%;
 
 }
 .user-data{
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
 .field-name{
     font-weight: 500;
     font-size: 0.8rem;
 }
 .email{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 
 nav p{

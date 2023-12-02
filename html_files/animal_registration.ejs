@@ -55,7 +55,8 @@
                     
                     <label for="aimg" class="cimg-label">
                         <img src="./images/Square_profile_sizing.png" alt="" class="selectedImage" id="aimg_display">
-                        <input class="cimg-input" type="file" id="aimg" name="aimg" accept="image/*" onchange="displayImage2()">
+                        <input class="cimg-input" type="file" id="aimg" name="aimg" accept="image/*">
+                        <p id="errorMessage"></p>
                     </label>
                 </div>
             </div>
@@ -66,7 +67,7 @@
     <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
     <script src="../script/hpage.js"></script>
     <script>
-        
+        let iserror = false
         function displayImage2(){
     
             var input2 = document.getElementById('aimg')
@@ -84,7 +85,9 @@
                     var imageDataUrl = e.target.result;
 
                     // Update the source of the image element
-                    document.getElementById('aimg_display').src = imageDataUrl;
+               
+                        document.getElementById('aimg_display').src = imageDataUrl;
+    
                 };
 
                 // Read the file as a data URL
@@ -116,12 +119,11 @@
             if (fileSize > maxSizeInBytes) {
                 errorMessage.textContent = 'Error: Image size must be less than 2MB.';
                 fileInput.value = ''; // Clear the file input
-                iserror = true
                 disp.src = "./images/Square_profile_sizing.png"
             } 
             else {
                 errorMessage.textContent = '';
-                iserror = false // Clear any previous error messages
+                displayImage2()
                 }
          }
         });
