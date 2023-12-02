@@ -1,4 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .coming-soon-container {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .go-home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #66BD66;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 *, *::before, *::after{
     box-sizing: border-box;
     margin: 0;
@@ -185,11 +214,6 @@ header>h2{
     color: white;
     margin-top: 1em;
     border-radius: 3px;
-
-}
-.ad__btn>a{
-    text-decoration: none;
-    color: white;
 }
 .ad__btn:hover{
     background-color: #61a761;

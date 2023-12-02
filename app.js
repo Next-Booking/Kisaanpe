@@ -130,9 +130,6 @@ app.get('/scan', (req, res) => {
   serveHTML("scan.ejs", req, res)
 });
 
-
-
-
 app.get("/register-animal",(req, res)=>{
   user = req.session.user;
   if(user){
@@ -142,6 +139,10 @@ app.get("/register-animal",(req, res)=>{
     res.redirect("/login")
   }
 })
+
+app.get("/coming_soon", (req, res) => {
+  serveHTML("coming_soon.ejs", req, res)
+});
 
 app.get("/dashboard", async (req, res)=>{
   const user = req.session.user;
