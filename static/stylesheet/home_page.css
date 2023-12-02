@@ -102,7 +102,7 @@ header>h2{
 .features__flist{
     display: flex;
     justify-content: space-between;
-    padding: 1.4em 0em;
+    padding: 1.4em 0.5em;
     padding-top:2em;
 }
 .flist__list{
@@ -283,5 +283,10 @@ footer li{
 
     .features__flist{
         flex-wrap: wrap;
+    }
+}
+@media(max-width: 460px){
+    .flist__list{
+        font-size: 0.5rem;
     }
 }

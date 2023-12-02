@@ -59,7 +59,7 @@
            
             <label for="uimg" class="uimg-label">
                 <img src="./images/Square_profile_sizing.png" alt="" class="selectedImage" id="uimg_display">
-                <input class="uimg-input" type="file" id="uimg" name="uimg" onchange="displayImage()" accept="image/*" required>
+                <input class="uimg-input" type="file" id="uimg" name="uimg" accept="image/*" required>
                 <p id="errorMessage"></p>
             </label>
            
@@ -84,9 +84,9 @@
                 reader.onload = function (e) {
                     // Get the data URL representing the file
                     var imageDataUrl = e.target.result;
-                    if(!iserror){
+
                         document.getElementById('uimg_display').src = imageDataUrl;
-                    }
+
                     // Update the source of the image element
                     
                 };
@@ -108,12 +108,12 @@
             if (fileSize > maxSizeInBytes) {
                 errorMessage.textContent = 'Error: Image size must be less than 2MB.';
                 fileInput.value = ''; // Clear the file input
-                iserror = true
+
                 disp.src = "./images/Square_profile_sizing.png"
             } 
             else {
                 errorMessage.textContent = '';
-                iserror = false // Clear any previous error messages
+                displayImage()
                 }
          }
         });

@@ -71,6 +71,8 @@ h1{
 
 .cimg-label>img{
     margin: auto;
+    width: 150px;
+
 }
 
 .cimg-input{
