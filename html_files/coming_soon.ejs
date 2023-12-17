@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./images/kisannpe_icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./stylesheet/coming_soon.css">
+  <title>Coming Soon - KisaanPe</title>
+</head>
+<body>
+   
+
+  <div class="coming-soon-container">
+    <h1>Coming Soon...</h1>
+    <a href="/" class="go-home-button">Go Home</a>
+  </div>
+
+  <script src="./script/hpage.js"></script>
+  <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
+  <script>
+    let images = document.querySelectorAll(".move");
+    let translation = -100;
+    setInterval(function() {
+        for (let i of images) {
+            i.style.transform = `translateX(${translation}%)`;
+        }
+        translation -= 100;
+        if (translation == -600) {
+            for (let i of images) {
+                i.style.transform = `translateX(${0}%)`;
+                translation = -100;
+            }
+        }
+    }, 10000);
+  </script>
+</body>
+</html>
