@@ -50,7 +50,7 @@ nav{
 .ham_buttons>i{
     margin-right: 0.5em;
 }
-.header__nav-section{
+.header__nav-section_ham{
     height: 100vh;
     width: 50vw;
     position: absolute;
@@ -60,6 +60,10 @@ nav{
     display: none;
     box-shadow: -3px 0px 10px #00000073;
     z-index: 10;
+}
+.header__nav-section{
+    display: none;
+    margin-left: auto;
 }
 main{
 
@@ -71,6 +75,7 @@ main{
 form{
 
     width: 80%;
+    max-width: 400px;
 }
 form>input{
     display: block;
@@ -99,4 +104,13 @@ form>label{
 }
 h1{
     text-align: center;
+}
+@media (min-width: 700px){
+    .header__nav-section{
+        display: flex;
+        margin-left: auto;
+    }
+    .hamburger_button{
+        display: none;
+    }
 }

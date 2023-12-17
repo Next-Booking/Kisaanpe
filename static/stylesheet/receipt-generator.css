@@ -50,17 +50,7 @@ nav{
 .ham_buttons>i{
     margin-right: 0.5em;
 }
-.header__nav-section{
-    height: 100vh;
-    width: 50vw;
-    position: absolute;
-    background-color: white;
-    right: 0;
-    top: 0;
-    display: none;
-    box-shadow: -3px 0px 10px #00000073;
-    z-index: 10;
-}
+
 main{
 
     height: 90vh;
@@ -106,4 +96,28 @@ h1{
 input:focus{
     outline: 3px solid #66BD66;
     border: none;
+}
+.header__nav-section_ham{
+    height: 100vh;
+    width: 50vw;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    top: 0;
+    display: none;
+    box-shadow: -3px 0px 10px #00000073;
+    z-index: 10;
+}
+.header__nav-section{
+    display: none;
+    margin-left: auto;
+}
+@media (min-width: 700px){
+    .header__nav-section{
+        display: flex;
+        margin-left: auto;
+    }
+    .hamburger_button{
+        display: none;
+    }
 }

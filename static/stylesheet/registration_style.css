@@ -132,6 +132,7 @@ textarea:focus{
     font-size: 1.2rem;
     font-weight: 500;
     display: block;
+    max-width: 300px;
 }
 select{
     background-color: rgb(255, 255, 255);
@@ -211,7 +212,7 @@ nav{
     margin-right: 0.5em;
 }
 
-.header__nav-section{
+.header__nav-section_ham{
     height: 100vh;
     width: 50vw;
     position: absolute;
@@ -222,8 +223,14 @@ nav{
     box-shadow: -3px 0px 10px #00000073;
     z-index: 10;
 }
+.header__nav-section{
+    display: none;
+}
 .d-flex{
     display: flex;
+}
+p{
+    align-self: center;
 }
 
 @media (max-width: 920px){
@@ -241,5 +248,14 @@ nav{
 
     .image_column{
         width: 100%;
+    }
+}
+@media (min-width: 700px){
+    .header__nav-section{
+        display: flex;
+        margin-left: auto;
+    }
+    .hamburger_button{
+        display: none;
     }
 }

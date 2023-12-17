@@ -1,5 +1,5 @@
 ham = document.querySelector("#hamburger_button")
-nav = document.querySelector(".header__nav-section")
+nav = document.querySelector(".header__nav-section_ham")
 
 ham.addEventListener("click", function(){
     let dsp = window.getComputedStyle(nav).display
@@ -15,7 +15,7 @@ document.addEventListener("click", function(e){
 
         for(let i of path){
             if(i.classList ){
-                if(!i.classList.contains("header__nav-section")){
+                if(!i.classList.contains("header__nav-section_ham")){
                     turnoff = true;
                 }
                 else{

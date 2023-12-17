@@ -43,6 +43,10 @@ nav{
     color: black;
 
 }
+main{
+    max-width: 400px;
+    margin:auto;
+}
 .ham_buttons:hover{
     background-color: gainsboro;
 }
@@ -50,7 +54,7 @@ nav{
     margin-right: 0.5em;
 }
 
-.header__nav-section{
+.header__nav-section_ham{
     height: 100vh;
     width: 50vw;
     position: absolute;
@@ -60,6 +64,9 @@ nav{
     display: none;
     box-shadow: -3px 0px 10px #00000073;
     z-index: 10;
+}
+.header__nav-section{
+    display: none;
 }
 .farmer_img{
     margin: auto;
@@ -124,4 +131,13 @@ nav{
 .add-animals:hover, .generate-receipt:hover{
     background-color: rgb(72, 170, 72);
     cursor: pointer;
+}
+@media (min-width: 700px){
+    .header__nav-section{
+        display: flex;
+        margin-left: auto;
+    }
+    .hamburger_button{
+        display: none;
+    }
 }

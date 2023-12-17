@@ -85,8 +85,11 @@ header>h2{
 .ham_buttons>i{
     margin-right: 0.5em;
 }
-
 .header__nav-section{
+    display: flex;
+    display: none;
+}
+.header__nav-section_ham{
     height: 100vh;
     width: 50vw;
     position: absolute;
@@ -200,7 +203,7 @@ footer{
     padding: 1em
 }
 .social__download{
-    width:50 ;
+    width:50%;
 }
 .social__download>h2{
     font-weight: 700;
@@ -279,6 +282,7 @@ footer li{
     margin: 1em 0;
 }
 
+
 @media (max-width: 350px){
 
     .features__flist{
@@ -289,4 +293,107 @@ footer li{
     .flist__list{
         font-size: 0.5rem;
     }
+}
+@media (min-width: 700px){
+    .hamburger_button{
+        display: none;
+    }
+    .header__nav-section{
+        display: flex;
+        margin-left: auto;
+    }
+    nav{
+        padding: 0.8em 2em;
+    }
+    nav p{
+        font-size: 1.8rem;
+    }
+    .nav__icon{
+        width: 50px;
+    }
+    header>h2{
+        font-size: 2rem;
+    }
+    .flist__list{
+        width: 15%;
+        font-size: 1rem;
+    }
+    .lnlist__list{
+        width: 20%;
+    }
+    .lnlist__list>p{
+        font-size: 0.9rem;
+    }
+    .lnlist__csoon{
+        width: 30%;
+        margin: auto;
+        margin-top: 2em;
+    }
+    .text__heading{
+        font-size: 2rem;
+    }
+    .text__para{
+        font-size: 1.1rem;
+        margin: 1em 0;
+    }
+    .ad__btn{
+        font-size: 1rem;
+    }
+    .footer__social{
+        align-items: center;
+        width: 90%;
+        margin: auto;
+        padding: 0;
+    }
+    .social__media{
+        width: 20%;
+    }
+    .footer__flinks{
+        display: flex;
+        width: 90%;
+        margin: auto;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin-top: 3em;
+    }
+    .footer_list{
+        width: 100%;
+    }
+    .flinks__mlinks{
+        width: auto;
+    }
+    .footer__flinks h2{
+        margin: 0;
+    }
+    .flinks__mlinks{
+        margin: 0;
+    }
+    .flinks__business, .flinks__insurance{
+        padding: 0;
+    }
+}
+@media (min-width: 1000px){
+    .text__heading{
+        font-size: 3rem;
+    }
+    .text__para{
+        font-size:1.5rem ;
+    }
+    .ad__btn{
+        font-size: 1.2rem;
+    }
+    .main__ad>img{
+        width: 30%;
+    }
+    .ad__text{
+        width: 50%;
+    }
+    .main__ad{
+        width: 95%;
+        margin: 2em auto;
+    }
+    header>h2{
+        font-size: 3rem;
+    }
+
 }

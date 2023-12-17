@@ -106,7 +106,7 @@ nav{
   margin-right: 0.5em;
 }
 
-.header__nav-section{
+.header__nav-section_ham{
   height: 100vh;
   width: 50vw;
   position: absolute;
@@ -117,7 +117,13 @@ nav{
   box-shadow: -3px 0px 10px #00000073;
   z-index: 10;
 }
-
+.header__nav-section{
+  display: none;
+  margin-left: auto;
+}
+p{
+  align-self: center;
+}
 
 @keyframes gra {
   0% {
@@ -156,5 +162,14 @@ nav{
   100% {
    
     background: linear-gradient(to bottom, transparent 0%,  var(--green) 0% ,transparent 100%);
+  }
+}
+@media (min-width: 700px){
+  .header__nav-section{
+      display: flex;
+      margin-left: auto;
+  }
+  .hamburger_button{
+      display: none;
   }
 }
