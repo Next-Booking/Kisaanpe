@@ -47,7 +47,32 @@
                     <label class="text_label" for="rnumber">Registration Number</label>
                     <input type="text" id="rnumber" name="rnumber"  value="<%= num %>" readonly>
                 </div>
-                
+                <div class="input_sec">
+                    <label class="text_label" for="age">Age</label>
+                    <input type="number" id="age" name="age">
+                </div>
+                <div class="input_sec">
+                    <label class="text_label" for="mquantity">Milk quantity(in Litres)</label>
+                    <input type="number" id="mquantity" name="mquantity">
+                </div>
+                <div class="input_sec">
+                    <p>Insurance?</p>
+                    <input class="radio_inp" type="radio" id="iyes" name="insurance" value="yes" required>
+                    <label class="radio_label" for="iyes">Yes</label>
+                    <input class="radio_inp" type="radio" id="ino" name="insurance" value="no" required>
+                    <label  class="radio_label" for="ino">No</label>
+                </div>
+                <div class="input_sec">
+                    <p>Is the animal pregnant?</p> 
+                    <input class="radio_inp" type="radio" id="pyes" name="isPregnant" value="yes" required> 
+                    <label  class="radio_label"  for="pyes">Yes</label>
+                    <input class="radio_inp" type="radio" id="pno" name="isPregnant" value="no" required>
+                    <label  class="radio_label" for="pno">No</label>
+                </div>
+                <div class="input_sec" id="pmonth_cont">
+                    <label class="text_label" for="pmonth">Pregnancy Months</label>
+                    <input type="number" id="pmonth" name="pmonth">
+                </div>
                 <div class="input_sec">
                     <label class="text_label" for="agent_name">Agent Name</label>
                     <input type="text" id="aname" name="aname">
@@ -73,6 +98,16 @@
     <script src="https://kit.fontawesome.com/88bc3e9469.js" crossorigin="anonymous"></script>
     <script src="../script/hpage.js"></script>
     <script>
+        const pregYes = document.getElementById("pyes")
+        const pregNo = document.getElementById("pno")
+        pregNo.addEventListener("click",(e)=>{
+            pregMonth = document.getElementById("pmonth_cont")
+            pregMonth.style.display = "none"
+        })
+        pregYes.addEventListener("click",(e)=>{
+            pregMonth = document.getElementById("pmonth_cont")
+            pregMonth.style.display = "block"
+        })
         let iserror = false
         function displayImage2(){
     
@@ -133,6 +168,7 @@
                 }
          }
         });
+
 
     </script>
 </body>

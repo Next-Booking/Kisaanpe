@@ -82,13 +82,11 @@ h1{
 }
 
 .form-dflex{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1em;
 }
 
-.image_column{
-    width: 30%;
-}
 
 .input_sec{
     position: relative;
@@ -109,8 +107,12 @@ h1{
 input[type="text"], input[type="email"]{
     padding-top: 1em;
     padding-left: 0.9em;
+    
 }
+input{
+    width: 100%;
 
+}
 textarea{
     padding: 1em 0.6em;
 }
@@ -232,7 +234,13 @@ nav{
 p{
     align-self: center;
 }
-
+.radio_inp{
+    width: auto;
+    margin-left: 2em;
+}
+.radio_label{
+    display: inline;
+}
 @media (max-width: 920px){
     .form-dflex{
         display: block;
@@ -254,6 +262,7 @@ p{
     .header__nav-section{
         display: flex;
         margin-left: auto;
+
     }
     .hamburger_button{
         display: none;

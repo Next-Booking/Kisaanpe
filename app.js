@@ -76,6 +76,11 @@ const animalSchema = new mongoose.Schema({
   atype : String, 
   rnumber: String,
   aname: String,
+  age: Number,
+  milkQuantity: Number,
+  insurance: String,
+  pragnant: String,
+  pmonth: Number,
   aimg:{
     name: String,
     data: Buffer,
@@ -289,10 +294,9 @@ upload.fields([
   
 ]), async (req, res)=>{
   const user = req.session.user
-  const {animalType , rnumber, aname, password} = req.body
+  const {animalType , rnumber, aname, password, age, mquantity, insurance, isPregnant, pmonth} = req.body
   const aimg = req.files["aimg"][0];
   const agent = await agentModel.findOne({name : aname, password: password})
-
   if(aimg){
     if(agent){
       const inputAnimalData = new animalData({
@@ -300,6 +304,11 @@ upload.fields([
         atype : animalType, 
         rnumber: rnumber,
         aname: aname,
+        age: age,
+        milkQuantity: mquantity,
+        insurance: insurance,
+        pragnant: isPregnant,
+        pmonth: pmonth,
         aimg: {
           name : aimg.originalname,
           data: aimg.buffer,
