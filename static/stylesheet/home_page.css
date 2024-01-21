@@ -24,7 +24,7 @@ img{
     align-items: center;
 }
 nav p{
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.4rem;
     color: #66BD66;
     margin-left: 0.2em;
@@ -40,10 +40,18 @@ nav{
     padding: 0.3em 1.3em;
     margin-bottom: 2em;
     box-shadow: 0px 2px 10px #00000029;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+    width: 100%;
 }
 /* Nav bar end */
 span{
     font-size: 0.6rem;
+}
+.header__hero-moving{
+    margin-top: 5em;
 }
 .hero-moving__img{
     display: flex;
@@ -64,7 +72,7 @@ header>h2{
     font-weight: 600;
     margin: 1em 0;
     font-size: 1.3rem;
-    margin-left: 1em;
+    margin-left: 0.3em;
 }
 .header__features{
     background-color: #66BD66;

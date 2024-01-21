@@ -265,7 +265,14 @@ app.post(
           });
 
           await formData.save();
-          res.redirect("/login")
+          const registration = await FormData.findOne({ mnumber: mobileNumber, password: Password });
+          if(registration){
+            req.session.user = registration
+            res.redirect("/dashboard")
+          }
+          else{
+            res.send("Some very big error occurred during registration. We will fix it soon...!!!")
+          }
         } else {
           res.send("image not chosen");
         }
